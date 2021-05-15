@@ -8,11 +8,7 @@ class AuthService {
   // create User() based on FirebaseUser()
 
   User _userFromFirebaseUser(FirebaseUser user) {
-    if (user == null) {
-      print('error: FirebaseUser user is null/empty');
-    }
-
-    return User(uid: user.uid);
+    return user != null ? User(uid: user.uid) : null;
   }
 
   // auth change user stream
@@ -28,5 +24,13 @@ class AuthService {
   // sign up w/email and pswd
 
   // sign out
-
+  Future signOut() async {
+    try {
+      // signOut() is built into FirebaseAuth class
+      return await _auth.signOut();
+    } catch (e) {
+      print(e.toString());
+      return null;
+    }
+  }
 }
