@@ -10,6 +10,9 @@ class SignIn extends StatefulWidget {
 
 class _SignInState extends State<SignIn> {
   final AuthService _auth = AuthService();
+  final _formKey = GlobalKey<FormState>();
+
+  String error = '';
 
   String email = '';
   String pswd = '';
@@ -25,39 +28,51 @@ class _SignInState extends State<SignIn> {
         body: Container(
           padding: EdgeInsets.symmetric(vertical: 20, horizontal: 50),
           child: Form(
+              key: _formKey,
               child: Column(
-            children: <Widget>[
-              SizedBox(height: 20),
-              TextFormField(
-                onChanged: (val) {
-                  setState(() => email = val);
-                },
-              ),
-              SizedBox(height: 20),
-              TextFormField(
-                obscureText: true,
-                onChanged: (val) {
-                  setState(() => pswd = val);
-                },
-              ),
-              SizedBox(height: 20),
-              TextButton(
-                child: Text('Sign In'),
-                onPressed: () async {
-                  print(email);
-                  print(pswd);
-                },
-              ),
-              SizedBox(height: 20),
-              Text("Don't have an account?"),
-              TextButton(
-                child: Text("Sign Up"),
-                onPressed: () {
-                  widget.toggleView();
-                },
-              ),
-            ],
-          )),
+                children: <Widget>[
+                  SizedBox(height: 20),
+                  TextFormField(
+                    validator: (val) =>
+                        val.isEmpty ? 'Please enter an email.' : null,
+                    onChanged: (val) {
+                      setState(() => email = val);
+                    },
+                  ),
+                  SizedBox(height: 20),
+                  TextFormField(
+                    validator: (val) => val.length < 6
+                        ? 'Please enter a password with 6 or more characters.'
+                        : null,
+                    obscureText: true,
+                    onChanged: (val) {
+                      setState(() => pswd = val);
+                    },
+                  ),
+                  SizedBox(height: 20),
+                  TextButton(
+                    child: Text('Sign In'),
+                    onPressed: () async {
+                      if (_formKey.currentState.validate()) {
+                        dynamic result;
+                        try {
+                          result = await _auth.signIn(email, pswd);
+                        } catch (e) {
+                          setState(() => error = 'Please enter a valid email.');
+                        }
+                      }
+                    },
+                  ),
+                  SizedBox(height: 20),
+                  Text("Don't have an account?"),
+                  TextButton(
+                    child: Text("Sign Up"),
+                    onPressed: () {
+                      widget.toggleView();
+                    },
+                  ),
+                ],
+              )),
         ));
   }
 }
