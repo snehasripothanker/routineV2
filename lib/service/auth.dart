@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:routine_app_v2/models/user.dart';
 
+String currentUserUid = '';
+
 class AuthService {
   final FirebaseAuth _auth = FirebaseAuth.instance;
 
@@ -46,6 +48,7 @@ class AuthService {
     }
 
     FirebaseUser user = result.user;
+    currentUserUid = user.uid;
     return _userFromFirebaseUser(user);
   }
 
