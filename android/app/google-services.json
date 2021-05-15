@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "72013816283",
+    "project_id": "routine---2",
+    "storage_bucket": "routine---2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:72013816283:android:73d13b461dc3e5139747fe",
+        "android_client_info": {
+          "package_name": "com.snehasripothanker.routine_app_v2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "72013816283-gkcrf5pmr7vns10h7h1nhlkkfmapvmfh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBiimyrK_digdpPQjNxmf45vI8-k79Hwoo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "72013816283-gkcrf5pmr7vns10h7h1nhlkkfmapvmfh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
