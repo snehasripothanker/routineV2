@@ -69,7 +69,10 @@ class _BuildTileState extends State<BuildTile> {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-        itemCount: numTasksb, itemBuilder: (context, index) => SingleTask());
+        itemCount: numTasksb,
+        itemBuilder: (context, index) {
+          return SingleTask();
+        });
   }
 }
 
