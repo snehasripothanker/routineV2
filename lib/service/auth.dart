@@ -32,8 +32,10 @@ class AuthService {
       return null;
     }
 
-    FirebaseUser user = result.user;
-    return _userFromFirebaseUser(user);
+    FirebaseUser userSignIn = result.user;
+    currentUserUid = userSignIn.uid;
+
+    return _userFromFirebaseUser(userSignIn);
   }
 
   // sign up w/email and pswd
@@ -47,9 +49,9 @@ class AuthService {
       return null;
     }
 
-    FirebaseUser user = result.user;
-    currentUserUid = user.uid;
-    return _userFromFirebaseUser(user);
+    FirebaseUser userSignUp = result.user;
+    currentUserUid = userSignUp.uid;
+    return _userFromFirebaseUser(userSignUp);
   }
 
   // sign out

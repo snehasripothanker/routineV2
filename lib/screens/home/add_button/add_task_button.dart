@@ -194,7 +194,7 @@ class _AddTodoPopupCard extends StatelessWidget {
 }
 
 void addToDatabase(Task task) async {
-  await DatabaseService(uid: currentUserUid).addUserData(task);
+  await DatabaseService().addUserData(task);
 }
 
 List<Widget> minutes = [];
