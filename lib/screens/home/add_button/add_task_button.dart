@@ -25,8 +25,7 @@ var selectedSec = 0;
 var finMin = 0;
 var finSec = 0;
 var finName = '';
-var numTasksb = 0;
-List<Task> taskList;
+int numTasksb = 0;
 
 TextEditingController taskNameController = new TextEditingController();
 
@@ -161,13 +160,13 @@ class _AddTodoPopupCard extends StatelessWidget {
                     TextButton(
                       onPressed: () {
                         finishSelection();
-                        // numTasksb++;
-                        // print(numTasksb);
                         Task newTask = Task(
                           name: finName,
                           timeMin: finMin,
                           timeSec: finSec,
+                          index: numTasksb,
                         );
+                        numTasksb++;
 
                         // add database
                         addToDatabase(newTask);
