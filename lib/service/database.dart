@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:routine_app_v2/models/task.dart';
-import 'package:routine_app_v2/screens/home/tasklist.dart';
+import 'package:routine_app_v2/screens/home/task_models/tasklist.dart';
 import 'package:routine_app_v2/service/auth.dart';
 
 class DatabaseService {

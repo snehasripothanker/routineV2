@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:routine_app_v2/models/task.dart';
-import 'package:routine_app_v2/screens/home/tasktile.dart';
+import 'package:routine_app_v2/screens/home/task_models/tasktile.dart';
 
 class TaskList extends StatefulWidget {
   @override
