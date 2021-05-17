@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:routine_app_v2/models/task.dart';
 import 'package:routine_app_v2/screens/home/add_button/add_task_button.dart';
-import 'package:routine_app_v2/screens/home/custom_drawer.dart';
 import 'package:routine_app_v2/screens/home/task_models/tasklist.dart';
 import 'package:routine_app_v2/screens/home/timer_page/time_page.dart';
 import 'package:routine_app_v2/service/auth.dart';
@@ -31,8 +30,10 @@ class Home extends StatelessWidget {
                 icon: Icon(Icons.check_outlined),
                 label: Text('timer'),
                 onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => TimePage()));
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => CountDownTimer()));
                 })
           ],
         ),

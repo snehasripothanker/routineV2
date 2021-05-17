@@ -33,9 +33,9 @@ class CustomDrawer extends StatelessWidget {
               if (!onRoutine) {
                 Navigator.pop(context);
               } else {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => TimePage()));
-                onRoutine = !onRoutine;
+                // Navigator.push(context,
+                //     MaterialPageRoute(builder: (context) => TimePage()));
+                // onRoutine = !onRoutine;
               }
             })
       ],

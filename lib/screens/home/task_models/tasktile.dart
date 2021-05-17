@@ -1,5 +1,10 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:routine_app_v2/models/task.dart';
+import 'package:routine_app_v2/screens/home/task_models/timer.dart';
+import 'package:routine_app_v2/screens/home/timer_page/time_page.dart';
+import 'package:routine_app_v2/screens/home/timer_page/timer_page_no_animate.dart';
 
 class TaskTile extends StatelessWidget {
   final Task task;
@@ -7,13 +12,12 @@ class TaskTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-      leading: const Icon(
-        Icons.access_alarms_sharp,
-      ),
-      title: Text(task.name),
-      subtitle: Text(displayTimeStr()),
-    );
+    return ExpansionTile(
+        leading: const Icon(
+          Icons.access_alarms_sharp,
+        ),
+        title: Text(task.name),
+        subtitle: Text(displayTimeStr()));
   }
 
   String displayTimeStr() {
