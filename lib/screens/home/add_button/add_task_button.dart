@@ -125,7 +125,9 @@ class _AddTodoPopupCard extends StatelessWidget {
                           ),
                           Expanded(
                             child: Text('min',
-                                style: TextStyle(color: Colors.red)),
+                                style: TextStyle(
+                                    color: Colors.amber,
+                                    fontWeight: FontWeight.bold)),
                           ),
                           Expanded(
                               child: Center(
@@ -138,7 +140,9 @@ class _AddTodoPopupCard extends StatelessWidget {
                           )),
                           Expanded(
                             child: Text('sec',
-                                style: TextStyle(color: Colors.red)),
+                                style: TextStyle(
+                                    color: Colors.amber,
+                                    fontWeight: FontWeight.bold)),
                           ),
                         ],
                       ),
@@ -150,7 +154,7 @@ class _AddTodoPopupCard extends StatelessWidget {
                     ),
                     Text(
                       'Be sure to click on your timer choices - not just scroll to them.',
-                      style: TextStyle(color: Colors.red),
+                      style: TextStyle(color: Colors.blue[100]),
                     ),
                     /**Text(
                       _updateSelected(),
@@ -178,7 +182,7 @@ class _AddTodoPopupCard extends StatelessWidget {
                       },
                       child: Text(
                         'Add',
-                        style: TextStyle(color: Colors.red),
+                        style: TextStyle(color: Colors.amber),
                       ),
                     ),
                   ],
@@ -203,7 +207,7 @@ List _makeTiles(int max) {
     return new ListTile(
       title: Text(
         (index + 1).toString(),
-        style: TextStyle(color: Colors.red),
+        style: TextStyle(color: Colors.amber),
       ),
       onTap: () {
         if (max == 60) {
