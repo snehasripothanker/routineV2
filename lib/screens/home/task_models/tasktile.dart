@@ -27,7 +27,7 @@ class TaskTile extends StatelessWidget {
     } else if (task.timeMin < 10) {
       str = ('0' + task.timeMin.toString() + ":" + task.timeSec.toString());
     } else if (task.timeSec < 10) {
-      str = (task.timeMin.toString() + ": 0" + task.timeSec.toString());
+      str = (task.timeMin.toString() + ":0" + task.timeSec.toString());
     } else {
       str = (task.timeMin.toString() + ":" + task.timeSec.toString());
     }

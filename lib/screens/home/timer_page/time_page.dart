@@ -55,9 +55,10 @@ class _CountDownTimerState extends State<CountDownTimer>
   @override
   void initState() {
     super.initState();
+
     controller = AnimationController(
       vsync: this,
-      duration: Duration(seconds: 6),
+      duration: Duration(seconds: cumSecs, minutes: cumMins),
     );
   }
 
@@ -128,6 +129,16 @@ class _CountDownTimerState extends State<CountDownTimer>
                                     crossAxisAlignment:
                                         CrossAxisAlignment.center,
                                     children: <Widget>[
+                                      (timerString ==
+                                              completeList[0]
+                                                      .timeMin
+                                                      .toString() +
+                                                  ":0" +
+                                                  completeList[0]
+                                                      .timeSec
+                                                      .toString())
+                                          ? Text(completeList[1].name)
+                                          : Text(completeList[0].name),
                                       Text(
                                         "Count Down Timer",
                                         style: TextStyle(

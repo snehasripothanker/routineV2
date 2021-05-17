@@ -8,15 +8,16 @@ class TaskList extends StatefulWidget {
   _TaskListState createState() => _TaskListState();
 }
 
-// int cumMins = 0;
-// int cumSecs = 0;
-dynamic tasksListProvider;
+int cumMins = 0;
+int cumSecs = 0;
+
+List<Task> completeList = [];
 
 class _TaskListState extends State<TaskList> {
   @override
   Widget build(BuildContext context) {
-    tasksListProvider = Provider.of<List<Task>>(context);
-
+    final tasksListProvider = Provider.of<List<Task>>(context);
+    completeList = tasksListProvider;
     // tasks.forEach((task) {
     //   print(task.name);
     //   print(task.timeMin);
@@ -33,16 +34,16 @@ class _TaskListState extends State<TaskList> {
       }
     }
 
-    // void cumulativeVal() {
-    //   cumMins = 0;
-    //   cumSecs = 0;
-    //   tasksListProvider.forEach((task) {
-    //     cumMins += task.timeMin;
-    //     cumSecs += task.timeSec;
-    //   });
-    // }
+    void cumulativeVal() {
+      cumMins = 0;
+      cumSecs = 0;
+      tasksListProvider.forEach((task) {
+        cumMins += task.timeMin;
+        cumSecs += task.timeSec;
+      });
+    }
 
-    //cumulativeVal();
+    cumulativeVal();
 
     return ListView.builder(
       itemCount: lenList(),
