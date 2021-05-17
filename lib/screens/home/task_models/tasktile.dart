@@ -9,12 +9,20 @@ class TaskTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ExpansionTile(
-        leading: const Icon(
-          Icons.access_alarms_sharp,
-        ),
-        title: Text(task.name),
-        subtitle: Text(displayTimeStr()));
+    return ListTile(
+      leading: const Icon(
+        Icons.access_alarms_sharp,
+        size: 40.0,
+      ),
+      title: Text(
+        task.name,
+        style: TextStyle(fontWeight: FontWeight.bold),
+      ),
+      subtitle: Text(
+        displayTimeStr(),
+        style: TextStyle(fontSize: 15, color: Colors.green[900]),
+      ),
+    );
   }
 
   String displayTimeStr() {

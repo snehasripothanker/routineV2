@@ -26,6 +26,7 @@ var finMin = 0;
 var finSec = 0;
 var finName = '';
 int numTasksb = 0;
+DatabaseService dbservice = DatabaseService();
 
 TextEditingController taskNameController = new TextEditingController();
 
@@ -49,7 +50,7 @@ class AddTodoButton extends StatelessWidget {
             return CustomRectTween(begin: begin, end: end);
           },
           child: Material(
-            color: Theme.of(context).accentColor,
+            color: Theme.of(context).primaryColor,
             elevation: 2,
             shape:
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(32)),
@@ -88,7 +89,7 @@ class _AddTodoPopupCard extends StatelessWidget {
             return CustomRectTween(begin: begin, end: end);
           },
           child: Material(
-            color: Theme.of(context).accentColor,
+            color: Theme.of(context).primaryColor,
             elevation: 2,
             shape:
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(32)),
@@ -126,7 +127,7 @@ class _AddTodoPopupCard extends StatelessWidget {
                           Expanded(
                             child: Text('min',
                                 style: TextStyle(
-                                    color: Colors.amber,
+                                    color: Theme.of(context).accentColor,
                                     fontWeight: FontWeight.bold)),
                           ),
                           Expanded(
@@ -141,7 +142,7 @@ class _AddTodoPopupCard extends StatelessWidget {
                           Expanded(
                             child: Text('sec',
                                 style: TextStyle(
-                                    color: Colors.amber,
+                                    color: Theme.of(context).accentColor,
                                     fontWeight: FontWeight.bold)),
                           ),
                         ],
@@ -182,7 +183,9 @@ class _AddTodoPopupCard extends StatelessWidget {
                       },
                       child: Text(
                         'Add',
-                        style: TextStyle(color: Colors.amber),
+                        style: TextStyle(
+                          color: Theme.of(context).accentColor,
+                        ),
                       ),
                     ),
                   ],
@@ -197,7 +200,7 @@ class _AddTodoPopupCard extends StatelessWidget {
 }
 
 void addToDatabase(Task task) async {
-  await DatabaseService().addUserData(task);
+  await dbservice.addUserData(task);
 }
 
 List<Widget> minutes = [];
@@ -207,7 +210,9 @@ List _makeTiles(int max) {
     return new ListTile(
       title: Text(
         (index + 1).toString(),
-        style: TextStyle(color: Colors.amber),
+        style: TextStyle(
+          color: Colors.amber,
+        ),
       ),
       onTap: () {
         if (max == 60) {

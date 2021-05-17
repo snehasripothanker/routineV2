@@ -142,15 +142,25 @@ class _CountDownTimerState extends State<CountDownTimer>
                                                       60 +
                                                   completeList[taskIndex]
                                                       .timeSec)
-                                          ? Text(completeList[taskIndex].name)
+                                          ? Text(
+                                              completeList[taskIndex].name,
+                                              style: TextStyle(
+                                                fontSize: 20.0,
+                                                color: Colors.white,
+                                              ),
+                                            )
                                           : Text(
-                                              completeList[taskIndex + 1].name),
-                                      Text(
-                                        'Countdown Timer',
-                                        style: TextStyle(
-                                            fontSize: 20.0,
-                                            color: Colors.white),
-                                      ),
+                                              completeList[taskIndex + 1].name,
+                                              style: TextStyle(
+                                                  fontSize: 20.0,
+                                                  color: Colors.white),
+                                            ),
+                                      // Text(
+                                      //   'Countdown Timer',
+                                      //   style: TextStyle(
+                                      //       fontSize: 20.0,
+                                      //       color: Colors.white),
+                                      // ),
                                       Text(
                                         timerString,
                                         style: TextStyle(

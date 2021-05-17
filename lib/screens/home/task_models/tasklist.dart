@@ -37,10 +37,12 @@ class _TaskListState extends State<TaskList> {
     void cumulativeVal() {
       cumMins = 0;
       cumSecs = 0;
-      tasksListProvider.forEach((task) {
-        cumMins += task.timeMin;
-        cumSecs += task.timeSec;
-      });
+      if (tasksListProvider != null) {
+        tasksListProvider.forEach((task) {
+          cumMins += task.timeMin;
+          cumSecs += task.timeSec;
+        });
+      }
     }
 
     cumulativeVal();
