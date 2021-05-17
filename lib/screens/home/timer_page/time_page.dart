@@ -66,6 +66,7 @@ class _CountDownTimerState extends State<CountDownTimer>
 
   @override
   Widget build(BuildContext context) {
+    int taskIndex = 0;
     ThemeData themeData = Theme.of(context);
     return Scaffold(
       backgroundColor: Colors.white10,
@@ -129,18 +130,23 @@ class _CountDownTimerState extends State<CountDownTimer>
                                     crossAxisAlignment:
                                         CrossAxisAlignment.center,
                                     children: <Widget>[
-                                      (timerString ==
-                                              completeList[0]
-                                                      .timeMin
-                                                      .toString() +
-                                                  ":0" +
-                                                  completeList[0]
-                                                      .timeSec
-                                                      .toString())
-                                          ? Text(completeList[1].name)
-                                          : Text(completeList[0].name),
+                                      ((controller.duration * controller.value)
+                                                          .inMinutes *
+                                                      60 +
+                                                  (controller.duration *
+                                                          controller.value)
+                                                      .inSeconds >
+                                              ((cumMins) * 60 + cumSecs) -
+                                                  (completeList[taskIndex]
+                                                          .timeMin) *
+                                                      60 +
+                                                  completeList[taskIndex]
+                                                      .timeSec)
+                                          ? Text(completeList[taskIndex].name)
+                                          : Text(
+                                              completeList[taskIndex + 1].name),
                                       Text(
-                                        "Count Down Timer",
+                                        'Countdown Timer',
                                         style: TextStyle(
                                             fontSize: 20.0,
                                             color: Colors.white),
