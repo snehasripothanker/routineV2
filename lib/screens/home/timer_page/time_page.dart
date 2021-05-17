@@ -130,18 +130,20 @@ class _CountDownTimerState extends State<CountDownTimer>
                                     crossAxisAlignment:
                                         CrossAxisAlignment.center,
                                     children: <Widget>[
-                                      ((controller.duration * controller.value)
-                                                          .inMinutes *
-                                                      60 +
-                                                  (controller.duration *
-                                                          controller.value)
-                                                      .inSeconds >
-                                              ((cumMins) * 60 + cumSecs) -
-                                                  (completeList[taskIndex]
+                                      (((((cumMins) * 60 + cumSecs)) -
+                                                  (((controller.duration *
+                                                                  controller
+                                                                      .value)
+                                                              .inMinutes *
+                                                          60 +
+                                                      (controller.duration *
+                                                              controller.value)
+                                                          .inSeconds))) <
+                                              ((completeList[taskIndex]
                                                           .timeMin) *
                                                       60 +
                                                   completeList[taskIndex]
-                                                      .timeSec)
+                                                      .timeSec))
                                           ? Text(
                                               completeList[taskIndex].name,
                                               style: TextStyle(
